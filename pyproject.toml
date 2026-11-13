@@ -1,0 +1,38 @@
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steam-games-analytics"
+version = "0.1.0"
+description = "Steam Games analytics project with EDA, ETL, PostgreSQL, and visualizations"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "pyarrow>=14.0",
+    "psycopg2-binary>=2.9",
+    "gdown>=5.2",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
